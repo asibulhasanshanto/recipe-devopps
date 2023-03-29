@@ -6,6 +6,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import { AccountProvider } from "./context/AccountContext";
 import Recipe from "./pages/Recipe";
+import CreateRecipe from "./pages/CreateRecipe";
 
 function App() {
   return (
@@ -31,6 +32,16 @@ function App() {
             element={
               <ProtectedRoute>
                 <Recipe />
+              </ProtectedRoute>
+            }
+          />
+          {/* create a createRecipe route */}
+          <Route
+            exact
+            path="/createRecipe"
+            element={
+              <ProtectedRoute>
+                <CreateRecipe />
               </ProtectedRoute>
             }
           />

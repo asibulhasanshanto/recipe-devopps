@@ -1,28 +1,7 @@
 import React from "react";
 import Ingradient from "./Ingradient";
-const Ingradiants = () => {
-  const ingradients = [
-    {
-      ingradient: "flour",
-      quantity: "1 cup",
-      time: "10 mins",
-    },
-    {
-      ingradient: "rice",
-      quantity: "1 cup",
-      time: "12 mins",
-    },
-    {
-      ingradient: "milk",
-      quantity: "1 cup",
-      time: "15 mins",
-    },
-    {
-      ingradient: "sugar",
-      quantity: "1 cup",
-      time: "10 mins",
-    },
-  ];
+const Ingradiants = ({ingradients}) => {
+  
   return (
     <table class="min-w-full divide-y divide-gray-300">
       <thead>
@@ -47,7 +26,7 @@ const Ingradiants = () => {
           </th>
         </tr>
       </thead>
-      <tbody class="divide-y divide-gray-200 bg-white">
+      <tbody class="divide-y divide-gray-200 ">
         {ingradients.map((ingradient) => (
           <tr key={ingradient.ingradient} class="divide-x divide-gray-200">
             <Ingradient
