@@ -1,5 +1,6 @@
-import React,{useContext} from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAccountDispatch, useAccount } from "../context/AccountContext";
 
 const Registration = () => {
   const navigate = useNavigate();
@@ -8,6 +9,8 @@ const Registration = () => {
   const [password, setPassword] = React.useState("");
   const [passwordConfirm, setPasswordConfirm] = React.useState("");
   const [error, setError] = React.useState("");
+  const dispatch = useAccountDispatch();
+  const account = useAccount();
 
   const handleSubmit = async (event) => {
     setError("");
@@ -37,6 +40,10 @@ const Registration = () => {
       setPassword("");
       setName("");
       setPasswordConfirm("");
+      localStorage.setItem("user", JSON.stringify(data));
+      dispatch({ type: "SET_ACCOUNT", payload: JSON.stringify(data) });
+
+      navigate("/dashboard");
     } catch (error) {
       // console.log(error);
       setError(error.message);
